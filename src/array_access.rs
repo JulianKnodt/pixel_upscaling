@@ -37,13 +37,13 @@ impl<'a, T> Slice2D<'a, T> {
         Some(self.get(x, y))
     }
     /// Returns 4-connected pixels adjacent to the given.
-    /// [up, right, down, left]
+    /// [up, right, left, down]
     pub fn adj(&self, x: usize, y: usize) -> [Option<&T>; 4] {
         [
             self.get_checked(x, y + 1),
             self.get_checked(x + 1, y),
-            y.checked_sub(1).map(|ym1| self.get(x, ym1)),
             x.checked_sub(1).map(|xm1| self.get(xm1, y)),
+            y.checked_sub(1).map(|ym1| self.get(x, ym1)),
         ]
     }
 }
