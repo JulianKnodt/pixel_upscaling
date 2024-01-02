@@ -44,10 +44,9 @@ pub fn epx<const CHANNELS: usize>(
             let og = pix.get(x, y);
             let [a, b, c, d] = pix.adj(x, y);
 
-
             let x2 = x * 2;
             let y2 = y * 2;
-            assert_eq!(out[idx_xy(x2+1, y2+1, out_w)], [0.; CHANNELS]);
+            assert_eq!(out[idx_xy(x2 + 1, y2 + 1, out_w)], [0.; CHANNELS]);
             assert_eq!(out[idx_xy(x2, y2, out_w)], [0.; CHANNELS]);
 
             // NOTE: flipped y here
