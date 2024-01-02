@@ -52,11 +52,8 @@ pub fn epx<const CHANNELS: usize>(
 
             // NOTE: flipped y here
             out[idx_xy(x2, y2 + 1, out_w)] = rule!(a if a = c, !c = d, !a = b else og);
-
             out[idx_xy(x2 + 1, y2 + 1, out_w)] = rule!(b if a = b, !a = c, !b=d else og);
-
             out[idx_xy(x2, y2, out_w)] = rule!(c if d = c, !d = b, !c=a else og);
-
             out[idx_xy(x2 + 1, y2, out_w)] = rule!(d if b = d, !b = a, !d = c else og);
         }
     }
